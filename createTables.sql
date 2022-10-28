@@ -1,23 +1,30 @@
 CREATE TABLE CUSTOMER
-(
+( --NO FOREIGN KEYS
     Customer_ID INT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
     M_init CHAR(1),
     Last_Name VARCHAR(30) NOT NULL,
-    Phone_Number, CHAR(10),
-    Billing_Address VARCHAR(50),
-    Shipping_Address VARCHAR(50),
+    Phone_Number CHAR(10),
+    Billing_street VARCHAR(50),
+    Billing_city VARCHAR(30),
+    Billing_state CHAR(2),
+    Billing_zip CHAR(5),
+    Shipping_street VARCHAR(50),
+    Shipping_city VARCHAR(30),
+    Shipping_state CHAR(2),
+    Shipping_zip CHAR(5),
     email VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(50) NOT NULL,
-    card_number , --TODO
-    card_sec_code , --TODO
-    card_expiration_date , --TODO
-    card_owner_name , --TODO
-    PRIMARY KEY(Customer_ID)
+    card_number VARCHAR(19),
+    card_sec_code VARCHAR(4),
+    card_expiration_date DATE,
+    card_owner_name VARCHAR(30),
+    PRIMARY KEY(Customer_ID),
+    CHECK(len(card_sec_code) > 2)
 );
 
 CREATE TABLE BOOK
-(
+( --NO FOREIGN KEYS
     ISBN CHAR(13) NOT NULL,
     Title VARCHAR(50) NOT NULL,
     discount_percent DOUBLE NOT NULL,
@@ -36,7 +43,7 @@ CREATE TABLE BOOK_GENRE
 );
 
 CREATE TABLE AUTHOR
-(
+(--NO FOREIGN KEYS
     Author_ID INT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
     M_init CHAR(1),
@@ -45,9 +52,12 @@ CREATE TABLE AUTHOR
 );
 
 CREATE TABLE PUBLISHER
-(
+(--NO FOREIGN KEYS
     Publisher_ID INT NOT NULL,
-    Publisher_address VARCHAR(50),
+    Publisher_street VARCHAR(50),
+    Publisher_city VARCHAR(30),
+    Publisher_state CHAR(2),
+    Publisher_zip CHAR(5),
     Publisher_Name VARCHAR(30) NOT NULL,
     publisher_ordering_website VARCHAR(255) NOT NULL,
     PRIMARY KEY(Publisher_ID)
@@ -57,7 +67,10 @@ CREATE TABLE WAREHOUSE
 (
     Warehouse_number INT NOT NULL,
     Name VARCHAR(30) NOT NULL,
-    Warehouse_address VARCHAR(50) NOT NULL,
+    W_street VARCHAR(50) NOT NULL,
+    W_city VARCHAR(30) NOT NULL,
+    W_state CHAR(2) NOT NULL,
+    W_zip CHAR(5) NOT NULL,
     Administrator_SSN INT NOT NULL,
     PRIMARY KEY(Warehouse_number),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN)
@@ -71,9 +84,12 @@ CREATE TABLE EMPLOYEE
     Last_Name VARCHAR(30) NOT NULL,
     Bdate DATE,
     Salary DOUBLE NOT NULL,
-    Employee_address VARCHAR(50),
-    Warehouse_number INT NOT NULL, --TODO: MAYBE IT CAN BE NULL
-    Administrator_SSN CHAR(9), --can be null if is administrator
+    E_street VARCHAR(50),
+    E_city VARCHAR(30),
+    E_state CHAR(2),
+    E_zip CHAR(5),
+    Warehouse_number INT,
+    Administrator_SSN CHAR(9), --can be null if is not administrator
     PRIMARY KEY(SSN),
     FOREIGN KEY(Warehouse_number) REFERENCES WAREHOUSE(Warehouse_number),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN)
