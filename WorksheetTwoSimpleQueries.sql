@@ -33,8 +33,3 @@ WHERE Customer_ID = '101010';
 SELECT Customer.Customer_ID, MAX(Quantity) AS Max_Q
 	FROM Customer, Purchases
 	WHERE Customer.Customer_ID = Purchases.Customer_ID;
-
-
-
-
-
