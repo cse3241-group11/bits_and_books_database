@@ -4,10 +4,10 @@ CREATE TABLE CUSTOMER
     First_Name VARCHAR(30) NOT NULL,
     M_init CHAR(1),
     Last_Name VARCHAR(30) NOT NULL,
-    Phone_Number, --TODO
+    Phone_Number, CHAR(10),
     Billing_Address VARCHAR(50),
     Shipping_Address VARCHAR(50),
-    email VARCHAR(50) UNIQUE,
+    email VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(50) NOT NULL,
     card_number , --TODO
     card_sec_code , --TODO
