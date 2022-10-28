@@ -1,5 +1,3 @@
-
-
 CREATE TABLE CUSTOMER
 ( --NO FOREIGN KEYS
     Customer_ID INT NOT NULL,
@@ -110,6 +108,7 @@ CREATE TABLE PURCHASES
     Customer_ID INT NOT NULL,
     ISBN CHAR(13) NOT NULL,
     Quantity INT NOT NULL,
+    Total_cost DOUBLE NOT NULL,
     Purchase_date DATE NOT NULL,
     PRIMARY KEY(Purchase_ID),
     FOREIGN KEY(Customer_ID) REFERENCES CUSTOMER(Customer_ID),
@@ -152,6 +151,7 @@ CREATE TABLE ORDERS
     Publisher_ID INT NOT NULL,
     ISBN CHAR(13) NOT NULL,
     Quantity INT NOT NULL,
+    Total_cost DOUBLE NOT NULL,
     Order_date DATE NOT NULL,
     PRIMARY KEY(Order_ID),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN),
