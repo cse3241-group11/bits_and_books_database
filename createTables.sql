@@ -20,7 +20,7 @@ CREATE TABLE CUSTOMER
     card_expiration_date DATE,
     card_owner_name VARCHAR(30),
     PRIMARY KEY(Customer_ID),
-    CHECK(len(card_sec_code) > 2)
+    CHECK(length(card_sec_code) > 2)
 );
 
 CREATE TABLE BOOK
