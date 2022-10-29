@@ -30,7 +30,7 @@ CREATE TABLE BOOK
     discount_percent DOUBLE default 0 NOT NULL,
     margin_percent DOUBLE default 0 NOT NULL,
     publisher_price DOUBLE NOT NULL,
-    published_date DATETIME NOT NULL,
+    published_date TEXT NOT NULL,
     PRIMARY KEY(ISBN)
 );
 --alexxxxxxx
@@ -59,7 +59,7 @@ CREATE TABLE PUBLISHER
     Publisher_state CHAR(2),
     Publisher_zip CHAR(5),
     Publisher_Name VARCHAR(30) NOT NULL,
-    publisher_ordering_website VARCHAR(255) NOT NULL,
+    publisher_ordering_website VARCHAR(255),
     PRIMARY KEY(Publisher_ID)
 );
 
