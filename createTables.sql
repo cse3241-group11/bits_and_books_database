@@ -33,7 +33,7 @@ CREATE TABLE BOOK
     published_date DATETIME NOT NULL,
     PRIMARY KEY(ISBN)
 );
-
+--alexxxxxxx
 CREATE TABLE BOOK_GENRE
 (
     ISBN CHAR(13) NOT NULL,
