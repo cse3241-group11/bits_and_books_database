@@ -27,8 +27,8 @@ CREATE TABLE BOOK
 ( --NO FOREIGN KEYS
     ISBN CHAR(13) NOT NULL,
     Title VARCHAR(50) NOT NULL,
-    discount_percent DOUBLE NOT NULL,
-    margin_percent DOUBLE NOT NULL,
+    discount_percent DOUBLE default 0 NOT NULL,
+    margin_percent DOUBLE default 0 NOT NULL,
     publisher_price DOUBLE NOT NULL,
     published_date DATETIME NOT NULL,
     PRIMARY KEY(ISBN)
@@ -46,7 +46,7 @@ CREATE TABLE AUTHOR
 (--NO FOREIGN KEYS
     Author_ID INT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
-    M_init CHAR(1),
+    Middle_Name VARCHAR(30),
     Last_Name VARCHAR(30) NOT NULL,
     PRIMARY KEY(Author_ID)
 );
