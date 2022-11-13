@@ -41,3 +41,7 @@ INSERT INTO EMPLOYEE VALUES('1111111117', 'Patrick', null, 'Yang', null, 10000, 
 INSERT INTO EMPLOYEE VALUES('1111111118', 'Liyah', null, 'Bouza', null, 20000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('1111111119', 'Eddie', null, 'Allen', null, 30000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('1111111120', 'Tea', null, 'Tamburo', null, 40000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111117', 'Patrick', null, 'Yang', null, 10000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111118', 'Liyah', null, 'Bouza', null, 20000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111119', 'Eddie', null, 'Allen', null, 30000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111120', 'Tea', null, 'Tamburo', null, 40000, null, null, null, null, null, null);
