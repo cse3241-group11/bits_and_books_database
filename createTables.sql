@@ -1,4 +1,4 @@
-CREATE TABLE CUSTOMER
+CREATE TABLE CUSTOMER -- DONE
 ( --NO FOREIGN KEYS
     Customer_ID INT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE BOOK
     discount_percent DOUBLE default 0 NOT NULL,
     margin_percent DOUBLE default 0 NOT NULL,
     publisher_price DOUBLE NOT NULL,
-    published_date TEXT NOT NULL,
+    published_date DATE NOT NULL,
     PRIMARY KEY(ISBN)
 );
 --alexxxxxxx
@@ -89,7 +89,7 @@ CREATE TABLE EMPLOYEE
     E_state CHAR(2),
     E_zip CHAR(5),
     Warehouse_number INT,
-    Administrator_SSN CHAR(9), --can be null if is not administrator
+    Administrator_SSN CHAR(9), --can be null if is administrator
     PRIMARY KEY(SSN),
     FOREIGN KEY(Warehouse_number) REFERENCES WAREHOUSE(Warehouse_number),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN)
