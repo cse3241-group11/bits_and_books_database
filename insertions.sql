@@ -21,7 +21,7 @@ INSERT INTO WAREHOUSE VALUES(0,'U', '', '', '', '', '');
 INSERT INTO WAREHOUSE VALUES(0,'V', '', '', '', '', '');
 
 --EMPLOYEE
---INSERT INTO EMPLOYEE VALUES('111111111', 'Hanson', null, 'Ma', null, 10000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('111111111', 'Hanson', null, 'Ma', null, 10000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('111111112', 'Neha', null, 'Checka', null, 20000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('111111113', 'Ted', null, 'Li', null, 30000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('111111114', 'Alexandra', null, 'Kashani', null, 40000, null, null, null, null, null, null);
@@ -29,3 +29,11 @@ INSERT INTO EMPLOYEE VALUES('111111115', 'Odin', null, 'Acevedo', null, 10000, n
 INSERT INTO EMPLOYEE VALUES('111111116', 'Jacqueline', null, 'Piper', null, 10000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('111111117', 'Keanu', null, 'Crosby', null, 10000, null, null, null, null, null, null);
 INSERT INTO EMPLOYEE VALUES('111111118', 'asdf', null, 'asdf', null, 10000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('111111119', 'Kate', null, 'Hull', null, 10000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111110', 'Amanda', null, 'Rodriguez', null, 20000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111111', 'Ted', null, 'Ford', null, 30000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111112', 'Alex', null, 'Smith', null, 40000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111113', 'Jack', null, 'Black', null, 10000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111114', 'Leo', null, 'Oliver', null, 40000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111115', 'Nina', null, 'Patel', null, 20000, null, null, null, null, null, null);
+INSERT INTO EMPLOYEE VALUES('1111111116', 'Ania', null, 'Brzozka', null, 30000, null, null, null, null, null, null);
