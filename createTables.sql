@@ -159,3 +159,5 @@ CREATE TABLE ORDERS
     FOREIGN KEY(ISBN) REFERENCES BOOK(ISBN),
     UNIQUE(Administrator_SSN, Publisher_ID, ISBN)
 );
+
+-- Ted was here.
