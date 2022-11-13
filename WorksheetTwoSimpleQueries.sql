@@ -33,3 +33,10 @@ WHERE Customer_ID = '101010';
 SELECT Customer.Customer_ID, MAX(Quantity) AS Max_Q
 	FROM Customer, Purchases
 	WHERE Customer.Customer_ID = Purchases.Customer_ID;
+--Provide the list of authors who
+-- wrote the books purchased by the
+-- customers who have spent more than the average customer.
+
+--SELECT Last_Name, First_Name, ISBN
+   -- FROM (SELECT ISBN, CUSTOMER.Customer_ID FROM PURCHASES, CUSTOMER WHERE COUNT(Total_cost)>AVG(Total_cost)) AUTHOR, BOOK, WRITTEN_BY,
+    --WHERE Book.ISBN=WRITTEN_BY.ISBN AND AUTHOR.Author_ID = WRITTEN_BY.Author_ID;
