@@ -109,7 +109,7 @@ CREATE TABLE PURCHASES
     ISBN VARCHAR(13) NOT NULL,
     Quantity INT NOT NULL,
     Total_cost DOUBLE NOT NULL,
-    Purchase_date DATE NOT NULL,
+    Purchase_date DATETIME NOT NULL,
     PRIMARY KEY(Purchase_ID),
     FOREIGN KEY(Customer_ID) REFERENCES CUSTOMER(Customer_ID),
     FOREIGN KEY(ISBN) REFERENCES BOOK(ISBN),
@@ -152,7 +152,7 @@ CREATE TABLE ORDERS
     ISBN VARCHAR(13) NOT NULL,
     Quantity INT NOT NULL,
     Total_cost DOUBLE NOT NULL,
-    Order_date DATE NOT NULL,
+    Order_date DATETIME NOT NULL,
     PRIMARY KEY(Order_ID),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN),
     FOREIGN KEY(Publisher_ID) REFERENCES PUBLISHER(Publisher_ID),
@@ -162,3 +162,7 @@ CREATE TABLE ORDERS
 
 -- Ted was here.
 -- Ted wrote some more.
+
+--TODO: recreate tables with check constraints
+--TODO: fix BOOK table
+--TODO: import data for stores, purchases, orders
