@@ -162,3 +162,7 @@ CREATE TABLE ORDERS
 
 -- Ted was here.
 -- Ted wrote some more.
+
+--TODO: recreate tables with check constraints
+--TODO: fix BOOK table
+--TODO: import data for stores, purchases, orders
