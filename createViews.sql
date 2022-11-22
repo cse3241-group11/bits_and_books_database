@@ -6,7 +6,7 @@ CREATE VIEW IF NOT EXISTS most_loyal_customers
 AS
     SELECT First_Name, M_init, Last_Name, email, SUM(Total_cost) AS Total_c
     FROM CUSTOMER, PURCHASES
-    WHERE CUSTOMER.Customer_ID = Purchase_ID
+    WHERE CUSTOMER.Customer_ID = PURCHASES.Customer_ID
     GROUP BY CUSTOMER.Customer_ID
     ORDER BY Total_c DESC;
 
