@@ -83,6 +83,7 @@ INSERT INTO ADMINISTRATOR VALUES('111111115');
 --Deletes the row in the Author table that has the name Albert-László
 
 --PUBLISHER
---DELETE FROM PUBLISHER;
---Deletes the entire Publisher Table
+--DELETE FROM PUBLISHER
+-- WHERE Publisher_street = '8567 Anderson Vista Suite 232';
+--Deletes the Publisher that has the street '8567 Anderson Vista Suite 232'
 
