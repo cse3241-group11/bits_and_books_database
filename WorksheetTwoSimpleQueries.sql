@@ -35,10 +35,17 @@ WHERE Customer_ID = '101010';
 SELECT Customer.Customer_ID, MAX(Quantity) AS Max_Q
 	FROM Customer, Purchases
 	WHERE Customer.Customer_ID = Purchases.Customer_ID;
+
 --Provide the list of authors who
 -- wrote the books purchased by the
 -- customers who have spent more than the average customer.
-
---SELECT Last_Name, First_Name, ISBN
-   -- FROM (SELECT ISBN, CUSTOMER.Customer_ID FROM PURCHASES, CUSTOMER WHERE COUNT(Total_cost)>AVG(Total_cost)) AUTHOR, BOOK, WRITTEN_BY,
-    --WHERE Book.ISBN=WRITTEN_BY.ISBN AND AUTHOR.Author_ID = WRITTEN_BY.Author_ID;
+   SELECT DISTINCT Author.First_Name, Author.Middle_Name, Author.Last_Name
+       FROM (SELECT SUM(Total_cost) as Customer_total_spending, Purchases.Customer_ID FROM
+                Purchases GROUP BY Purchases.Customer_ID HAVING
+                      Customer_total_spending > (SELECT AVG(Customer_total_spending_pre_avg) FROM
+                                                   (SELECT SUM(Total_cost) as Customer_total_spending_pre_avg FROM
+                                                          Purchases GROUP BY Purchases.Customer_ID))) AS
+           Purchases_more_than_avg, Purchases, Written_by, Author WHERE
+                Purchases_more_than_avg.Customer_ID = Purchases.Customer_ID AND
+                Purchases.ISBN = Written_by.ISBN AND
+                Written_by.Author_ID = Author.Author_ID;
