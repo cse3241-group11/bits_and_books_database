@@ -13,8 +13,10 @@ WHERE Customer_ID = '101010'
 
 --3c
 SELECT Book.Title, Book.ISBN
-FROM Book, Stores
-	WHERE Book_Quantity < 5;
+FROM Book, (SELECT Stores.ISBN,
+                   SUM(Stores.Book_quantity) AS Total_of_each_book
+                   FROM Stores GROUP BY Stores.Book_quantity) AS Book_totals
+     WHERE Book.ISBN = Book_totals.ISBN AND Book_totals.Total_of_each_book < 5;
 
 --3d
 SELECT Customer.Customer_ID, Customer.First_name, Customer.Last_name, Title
