@@ -3,12 +3,13 @@ SELECT Title
 FROM Book, Author, Written_by
 WHERE Book.Publisher_price < 10
   AND Author.Last_name = 'Pratchett'
-  AND Book.ISBN = WRITTEN_BY.ISBN;
+  AND Book.ISBN = WRITTEN_BY.ISBN
+  AND Author.Author_ID = WRITTEN_BY.Author_ID;
 
 --3b
 SELECT Title, Purchases.Purchase_date
 FROM Purchases, Book
-WHERE Customer_ID = '101010'
+WHERE Customer_ID = '1'
   AND Purchases.ISBN = Book.ISBN;
 
 --3c
@@ -24,12 +25,13 @@ FROM Author, Written_by, Book, Purchases, Customer
 WHERE Author.Last_Name = 'Pratchett'
   AND Purchases.ISBN = Book.ISBN
   AND Purchases.Customer_ID = Customer.Customer_ID
-  AND Book.ISBN=WRITTEN_BY.ISBN;
+  AND Book.ISBN=WRITTEN_BY.ISBN
+  AND Author.Author_ID = WRITTEN_BY.Author_ID;
 
 --3e
 SELECT Customer_ID, SUM (Quantity) AS Total_Q
 FROM Purchases
-WHERE Customer_ID = '101010';
+WHERE Customer_ID = '1';
 
 --3f
 SELECT Customer.Customer_ID, MAX(Quantity) AS Max_Q
