@@ -47,7 +47,7 @@ COMMIT TRANSACTION;
 BEGIN TRANSACTION;
     -- Inserting row to the ORDERS table
     INSERT OR ROLLBACK INTO ORDERS(ADMINISTRATOR_SSN, PUBLISHER_ID, ISBN, QUANTITY, TOTAL_COST, ORDER_DATE)
-    VALUES(111111111, 1, '0201615762', 20, (SELECT publisher_price
+    VALUES(111111111, 2, '0201615762', 20, (SELECT publisher_price
                                             FROM BOOK
                                             WHERE ISBN = '0782140661') * 20, DATE('NOW'));
 
@@ -56,8 +56,8 @@ BEGIN TRANSACTION;
     SET Book_quantity = Book_quantity + 20
     WHERE
         ISBN = '0782140661' AND
-        Warehouse_number = 1;
+        Warehouse_number = 2;
 
     -- Aborts this sql query if there already is a row with this Warehouse_number and ISBN that already exists
-    INSERT OR ABORT INTO STORES VALUES(1, '0201615762', 20);
+    INSERT OR ABORT INTO STORES VALUES(2, '0201615762', 20);
 COMMIT TRANSACTION;
