@@ -85,7 +85,7 @@ SELECT First_Name, Last_Name
 LIMIT 1;
 
 --5g
-SELECT Customer.First_Name, Customer.Last_Name
+SELECT DISTINCT Customer.First_Name, Customer.Last_Name
 FROM Author,WRITTEN_BY, PURCHASES,Customer,
      (SELECT First_Name, Last_Name
      FROM(
