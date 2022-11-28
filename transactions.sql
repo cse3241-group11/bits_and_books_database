@@ -43,19 +43,18 @@ COMMIT TRANSACTION;
 
 
 -- INSERTING NEW ORDER OF BOOKS FROM PUBLISHER BY AN ADMINISTRATOR OF A WAREHOUSE
---TODO: *NOTE* THE PUBLISHER_IDS AND ISBNS FROM ORDERS DO NOT MATCH WITH THOSE IN PUBLISHED_BY
 BEGIN TRANSACTION;
     -- Inserting row to the ORDERS table
     INSERT OR ROLLBACK INTO ORDERS(ADMINISTRATOR_SSN, PUBLISHER_ID, ISBN, QUANTITY, TOTAL_COST, ORDER_DATE)
     VALUES(111111111, 2, '0201615762', 20, (SELECT publisher_price
                                             FROM BOOK
-                                            WHERE ISBN = '0782140661') * 20, DATE('NOW'));
+                                            WHERE ISBN = '0201615762') * 20, DATE('NOW'));
 
     --Updating the new book_quantity, if it exists. If it doesn't this query does nothing and moves on to the insert
     UPDATE OR ROLLBACK STORES
     SET Book_quantity = Book_quantity + 20
     WHERE
-        ISBN = '0782140661' AND
+        ISBN = '0201615762' AND
         Warehouse_number = 2;
 
     -- Aborts this sql query if there already is a row with this Warehouse_number and ISBN that already exists
