@@ -43,8 +43,6 @@ GROUP BY Customer.First_Name, Customer.Last_Name;
 	WHERE Total_Cost > AVG_COST;
 
 
-
-
 --5c
 SELECT Title, TotCopies
   FROM (SELECT Book.Title, SUM (Quantity) AS TotCopies
@@ -86,6 +84,25 @@ SELECT First_Name, Last_Name
    Order by tot_cost  Desc )
 LIMIT 1;
 
+--5g
+SELECT Customer.First_Name, Customer.Last_Name
+FROM Author,WRITTEN_BY, PURCHASES,Customer,
+     (SELECT First_Name, Last_Name
+     FROM(
+        SELECT SUM(Total_cost) AS tot_cost, Author.First_Name, Author.Last_Name
+		FROM Written_By, Purchases, Book, AUTHOR
+		WHERE  Author.Author_ID=WRITTEN_BY.Author_ID
+        AND Purchases.ISBN = WRITTEN_BY.ISBN
+        AND Book.ISBN = WRITTEN_BY.ISBN
+          	   GROUP BY Author.Author_ID
+   Order by tot_cost  Desc )
+LIMIT 1)AS PopAuth
+WHERE Purchases.ISBN = WRITTEN_BY.ISBN
+AND WRITTEN_BY.Author_ID = Author.Author_ID
+AND PopAuth.First_Name = AUTHOR.First_Name
+AND Customer.Customer_ID = PURCHASES.Customer_ID;
+
+
 --5h
 
 	SELECT First_name, Last_name
@@ -98,6 +115,9 @@ LIMIT 1;
              (SELECT AVG(Total_Cost) AVG_COST
 	FROM Purchases)
 	WHERE Total_Cost > AVG_COST;
+
+
+
 
 
 
