@@ -83,7 +83,7 @@ INSERT INTO AUTHOR (First_Name, Middle_Name, Last_Name) VALUES ('Nicole-László
 
 --CUSTOMERS
 -- Insert into customer table information the customer named "Daniel E Glover"
-  INSERT INTO CUSTOMER (First_Name, M_init, Last_Name, Phone_Number, Billing_street, Billing_city,
+INSERT INTO CUSTOMER (First_Name, M_init, Last_Name, Phone_Number, Billing_street, Billing_city,
                                   Billing_state, Billing_zip, Shipping_street, Shipping_city, Shipping_state,
                                   Shipping_zip,email,password, card_number, card_sec_code, card_expiration_date,
                                                                                                card_owner_name) VALUES
@@ -101,22 +101,23 @@ INSERT INTO AUTHOR (First_Name, Middle_Name, Last_Name) VALUES ('Nicole-László
  *                                                                                             'card_owner_name');
  */
 
---EMPLOYEE
---DELETE FROM EMPLOYEE
---WHERE  Fname = 'Nia' AND Lname = 'Smith';
---Deletes the row in the Author table that has the first name Nia and Last name Smith
+-- EMPLOYEE
+-- Deletes the row in the Author table that has the first name Nia and Last name Smith
+DELETE FROM EMPLOYEE
+WHERE  First_Name = 'Nia' AND Last_Name = 'Smith';
 
---CUSTOMERS
---DELETE FROM CUSTOMER
---WHERE Last_Name = 'Glover';
---Deletes the row in the Author table that has the last name Glover
---AUTHOR
---DELETE FROM AUTHOR
---WHERE First_Name = 'Albert-László';
---Deletes the row in the Author table that has the name Albert-László
 
---PUBLISHER
---DELETE FROM PUBLISHER
--- WHERE Publisher_street = '8567 Anderson Vista Suite 232';
---Deletes the Publisher that has the street '8567 Anderson Vista Suite 232'
+-- CUSTOMERS
+DELETE FROM CUSTOMER
+WHERE Last_Name = 'Glover';
+--Deletes all rows in the Customer table that have the last name Glover
+-- AUTHOR
+-- Deletes the row in the Author table that has the name Albert-László
+DELETE FROM AUTHOR
+WHERE First_Name = 'Albert-László';
 
+
+-- PUBLISHER
+-- Deletes the Publisher that has the street address '8567 Anderson Vista Suite 232'
+DELETE FROM PUBLISHER
+WHERE Publisher_street = '8567 Anderson Vista Suite 232';
