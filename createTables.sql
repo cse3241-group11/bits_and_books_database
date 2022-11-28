@@ -1,6 +1,6 @@
 CREATE TABLE CUSTOMER -- DONE
 ( --NO FOREIGN KEYS
-    Customer_ID INT NOT NULL,
+    Customer_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
     M_init CHAR(1),
     Last_Name VARCHAR(30) NOT NULL,
@@ -19,7 +19,6 @@ CREATE TABLE CUSTOMER -- DONE
     card_sec_code VARCHAR(4),
     card_expiration_date DATE,
     card_owner_name VARCHAR(30),
-    PRIMARY KEY(Customer_ID),
     CHECK(length(card_sec_code) > 2)
 );
 
@@ -44,35 +43,32 @@ CREATE TABLE BOOK_GENRE -- DONE
 
 CREATE TABLE AUTHOR -- DONE
 (--NO FOREIGN KEYS
-    Author_ID INT NOT NULL,
+    Author_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
     Middle_Name VARCHAR(30),
-    Last_Name VARCHAR(30) NOT NULL,
-    PRIMARY KEY(Author_ID)
+    Last_Name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE PUBLISHER -- DONE
 (--NO FOREIGN KEYS
-    Publisher_ID INT NOT NULL,
+    Publisher_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Publisher_street VARCHAR(50),
     Publisher_city VARCHAR(30),
     Publisher_state CHAR(2),
     Publisher_zip CHAR(5),
     Publisher_Name VARCHAR(30) NOT NULL,
-    publisher_ordering_website VARCHAR(255),
-    PRIMARY KEY(Publisher_ID)
+    publisher_ordering_website VARCHAR(255)
 );
 
 CREATE TABLE WAREHOUSE -- DONE
 (
-    Warehouse_number INT NOT NULL,
+    Warehouse_number INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Name VARCHAR(30) NOT NULL,
     W_street VARCHAR(50) NOT NULL,
     W_city VARCHAR(30) NOT NULL,
     W_state CHAR(2) NOT NULL,
     W_zip CHAR(5) NOT NULL,
     Administrator_SSN INT NOT NULL,
-    PRIMARY KEY(Warehouse_number),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN)
 );
 
@@ -104,16 +100,15 @@ CREATE TABLE ADMINISTRATOR -- DONE
 
 CREATE TABLE PURCHASES -- DONE
 (
-    Purchase_ID INT NOT NULL,
+    Purchase_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Customer_ID INT NOT NULL,
     ISBN VARCHAR(13) NOT NULL,
     Quantity INT NOT NULL,
     Total_cost DOUBLE NOT NULL,
     Purchase_date DATETIME NOT NULL,
-    PRIMARY KEY(Purchase_ID),
     FOREIGN KEY(Customer_ID) REFERENCES CUSTOMER(Customer_ID),
     FOREIGN KEY(ISBN) REFERENCES BOOK(ISBN),
-    UNIQUE(Customer_ID, ISBN), CHECK(length(ISBN) IN (10, 13))
+    CHECK(length(ISBN) IN (10, 13))
 );
 
 CREATE TABLE WRITTEN_BY -- DONE
@@ -147,18 +142,17 @@ CREATE TABLE STORES -- DONE
 
 CREATE TABLE ORDERS -- DONE
 (
-    Order_ID INT NOT NULL,
+    Order_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Administrator_SSN CHAR(9) NOT NULL,
     Publisher_ID INT NOT NULL,
     ISBN VARCHAR(13) NOT NULL,
     Quantity INT NOT NULL,
     Total_cost DOUBLE NOT NULL,
     Order_date DATETIME NOT NULL,
-    PRIMARY KEY(Order_ID),
     FOREIGN KEY(Administrator_SSN) REFERENCES ADMINISTRATOR(SSN),
     FOREIGN KEY(Publisher_ID) REFERENCES PUBLISHER(Publisher_ID),
     FOREIGN KEY(ISBN) REFERENCES BOOK(ISBN),
-    UNIQUE(Administrator_SSN, Publisher_ID, ISBN), CHECK(length(ISBN) IN (10, 13))
+    CHECK(length(ISBN) IN (10, 13))
 );
 
 -- Ted was here.
