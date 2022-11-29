@@ -1,29 +1,3 @@
---4A
-
-SELECT CUSTOMER.Customer_ID, CUSTOMER.First_Name, CUSTOMER.Last_Name, Book.Title
-FROM Published_By, Book, Customer, Publisher, Purchases
-WHERE Publisher_Name = 'HarperCollins'
-AND Publisher.Publisher_ID = Published_By.Publisher_ID
-AND PUBLISHED_BY.ISBN = Book.ISBN
-AND Purchases.ISBN = Book.ISBN
-AND Purchases.Customer_ID = Customer.Customer_ID;
-
---4b.
-
-SELECT SUM (Quantity) AS Total_Q
-FROM Customer, Publisher, Purchases, PUBLISHED_BY, BOOK
-WHERE CUSTOMER.First_Name = 'Samantha'
-AND Customer.Customer_ID = Purchases.Customer_ID
-AND Publisher.Publisher_Name = 'HarperCollins'
-AND Publisher.Publisher_ID = Published_By.Publisher_ID
-AND Purchases.ISBN = Book.ISBN
-AND PUBLISHED_BY.ISBN = Book.ISBN;
-
---4c
-SELECT AVG(Salary) AS Avg_Sal
-FROM Employee
-NATURAL JOIN Administrator;
-
 
 --5a
 SELECT Customer.First_Name, Customer.Last_Name, SUM (Total_Cost) As CustTotal
@@ -62,7 +36,7 @@ SELECT Title, TotPurchased
 
 
 --5e Find the most popular author in the database (i.e. the one who has sold the most books)
-SELECT First_Name, Last_Name, TotPurchased FROM (SELECT First_Name, Last_Name, TotPurchased
+SELECT First_Name, Middle_Name, Last_Name, TotPurchased FROM (SELECT Middle_Name, First_Name, Last_Name, TotPurchased
 FROM Author,
     (SELECT SUM (Quantity) AS TotPurchased, Author_ID
 	FROM Purchases,Book, Author
@@ -73,9 +47,9 @@ order by TotPurchased DESC)
 LIMIT  1;
 
 --5f
-SELECT First_Name, Last_Name
+SELECT First_Name, Middle_Name, Last_Name
      FROM(
-        SELECT SUM(Total_cost) AS tot_cost, Author.First_Name, Author.Last_Name
+        SELECT SUM(Total_cost) AS tot_cost,Author.Middle_Name, Author.First_Name, Author.Last_Name
 		FROM Written_By, Purchases, Book, AUTHOR
 		WHERE  Author.Author_ID=WRITTEN_BY.Author_ID
         AND Purchases.ISBN = WRITTEN_BY.ISBN
@@ -105,14 +79,14 @@ AND Customer.Customer_ID = PURCHASES.Customer_ID;
 
 --5h
 
-	SELECT First_name, Last_name
-	FROM (SELECT Author.First_name, Author.Last_name, SUM(Total_Cost)AS Total_Cost
+	SELECT DISTINCT First_name, Middle_Name, Last_name
+	FROM (SELECT Author.Middle_Name, Author.First_name, Author.Last_name, SUM(Total_Cost)AS Total_Cost
 	        FROM Customer, Purchases, Author, WRITTEN_BY
 	        WHERE CUSTOMER.Customer_ID = PURCHASES.Customer_ID
 	        AND WRITTEN_BY.ISBN = Purchases.ISBN
 	        AND Author.Author_ID = WRITTEN_BY.Author_ID
             GROUP BY Customer.First_Name, Customer.Last_Name, Customer.email),
-             (SELECT AVG(Total_Cost) AVG_COST
+             (SELECT AVG(Total_Cost) AS AVG_COST
 	FROM Purchases)
 	WHERE Total_Cost > AVG_COST;
 
