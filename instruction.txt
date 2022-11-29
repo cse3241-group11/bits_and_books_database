@@ -1,0 +1,6 @@
+When importing the CSV files into the database, right click the schema or
+table and select Import/Export and import the data from files
+Make sure that the files have delimiter-seperated values.
+When importing the file, include data conversion settings.
+Then after looking at the files in the Sources pane, click import on the files.
+When selecting a schema or table click Table and Target schema for all sources.
