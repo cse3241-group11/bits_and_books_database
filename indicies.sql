@@ -1,5 +1,5 @@
 -- We shall index name columns in all of the tables because in the real world we are frequently interested in
---    consulting records by names of people which are recorded.
+--    consulting records by names of people and various other entities which are recorded.
 
 CREATE INDEX author_names ON Author(First_Name, Middle_Name, Last_Name);
 CREATE INDEX customer_names ON Customer(First_Name, M_init, Last_Name);
